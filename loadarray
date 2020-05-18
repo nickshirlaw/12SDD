@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Reading_from_a_file
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Load the contents of a file to an array
+            string[] splittedText = System.IO.File.ReadAllText(@"\\northsydbo-h.local\staff\docs\n.shirlaw\Documents\NSBH\SDD HSC\Worksheets\file3_sort_data.txt").Split(',');
+            int[] element = new int[splittedText.Length - 1];
+
+            int i = 0;
+            string dataValue = splittedText[i];
+
+            while (dataValue != "###")
+            {
+                element[i] = int.Parse(dataValue);
+                i += 1;
+                dataValue = splittedText[i];
+            }
+
+
+            //  Display the contents of an array
+            int j = 0;
+            do
+            {
+                Console.WriteLine(element[j]);
+                j += 1;
+            } while (j < element.Length);
+
+            Console.ReadLine();
+        }
+    }
+}
